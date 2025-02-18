@@ -4,42 +4,84 @@ public class CaffeinatedBeverage
     private int ounces;
     private double price;
 
-    public CaffeinatedBeverage(String name, int ounces, double price) {
-        this.name = name;
-        this.ounces = ounces;
-        this.price = price;
+    public CaffeinatedBeverage() { // done
+        setAll("", 0, 0);
     }
 
-    public String getName() {
+    public CaffeinatedBeverage(String name, int ounces, double price) { // done
+        setAll(name, ounces, price);
+    }
+
+    public CaffeinatedBeverage(CaffeinatedBeverage original) { // done
+        setAll(original.getName(), original.getOunces(), original.getPrice());
+    }
+
+    public String getName() { // done
         return this.name;
     }
-
-    public void setName(String name) {
+    public int getOunces() { // done
+        return this.ounces;
+    }
+    public double getPrice() { // done
+        return this.price;
+    }
+    
+    public void setName(String name) { // done
         this.name = name;
     }
 
-    public int getOunces() {
-        return this.ounces;
+    public boolean setOunces(int ounces) { // done
+        if (ounces >= 0)
+        {
+            this.ounces = ounces;
+            return true;
+        }
+        return false;
     }
 
-    public void setOunces(int ounces) {
-        this.ounces = ounces;
+    public boolean setPrice(double price) { // done
+        if (price >= 0)
+        {
+            this.price = price;
+            return true;
+        }
+        return false;
     }
 
-    public double getPrice() {
-        return this.price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public boolean setAll(String name, int ounces, double price) // done
+    {
+        setName(name);
+        return setOunces(ounces) && setPrice(price);
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (o == null || this.getClass() != o.getClass()) return false;
+    public boolean equals(Object o) { // done
+        if (o == null || this.getClass() != o.getClass())
+            return false;
+        
         CaffeinatedBeverage that = (CaffeinatedBeverage) o;
         return this.ounces == that.ounces &&
                 Double.compare(this.price, that.price) == 0 &&
-               this.name.equals(that.name);
+                this.name.equals(that.name);
+    }
+    
+    @Override
+    public String toString()
+    {
+        return super.toString();
+    }
+
+    public boolean sip(int ounces) // done
+    {
+        this.ounces -= ounces;
+        if (this.ounces < 0) {
+            ounces = 0;
+        }
+        return !isEmpty();
+    }
+    
+    public boolean isEmpty()
+    {
+        return this.ounces < 1;
     }
 }
