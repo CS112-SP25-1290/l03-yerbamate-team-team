@@ -4,6 +4,9 @@ public class Main
 {
 	public static void main(String[] args)
   	{
+		CaffeinatedBeverage test = new CaffeinatedBeverage();
+		System.out.println(test.toString());
+		
 		CaffeinatedBeverage[] inventory = new CaffeinatedBeverage[10];
 		Scanner keyboard = new Scanner(System.in);
 		// Prompt user with options in a loop

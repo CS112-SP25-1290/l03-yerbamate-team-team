@@ -68,7 +68,7 @@ public class CaffeinatedBeverage
     @Override
     public String toString()
     {
-        return super.toString();
+        return String.format("Name:%s, Ounces: %d, Price: %.d", name, ounces, price);
     }
 
     public boolean sip(int ounces) // done
