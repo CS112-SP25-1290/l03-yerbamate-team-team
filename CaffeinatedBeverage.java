@@ -1,7 +1,7 @@
 public class CaffeinatedBeverage
 {
     private String name;
-    private int ounces;
+    protected int ounces;
     private double price;
 
     public CaffeinatedBeverage() { // done
@@ -68,7 +68,7 @@ public class CaffeinatedBeverage
     @Override
     public String toString()
     {
-        return String.format("Name:%s, Ounces: %d, Price: %.d", name, ounces, price);
+        return String.format("Name:%s, Ounces: %d, Price: $%.2f", name, ounces, price);
     }
 
     public boolean sip(int ounces) // done
